@@ -115,6 +115,9 @@ export default {
         this._setSliderWidth(true)
         this.slider.refresh()//重新计算 better-scroll，当 DOM 结构发生变化的时候务必要调用确保滚动的效果正常
     })
+  },
+  destroyed () {//组件销毁时要清除掉所有的计时器，释放出缓存
+    clearTimeout(this.timer)
   }
 };
 </script>
