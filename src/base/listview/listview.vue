@@ -9,7 +9,12 @@
       <li v-for="(group, key) of data" :key="key" class="list-group" :ref="key">
         <h2 class="list-group-title">{{key}}</h2>
         <ul>
-          <li v-for="item of group" :key="item.id" class="list-group-item">
+          <li 
+          v-for="item of group" 
+          :key="item.id" 
+          class="list-group-item"
+          @click= 'select(item)' 
+          >
             <img class="avatar" v-lazy="item.avatar" alt="">
             <span class="name">{{item.name}}</span>
           </li>
@@ -95,6 +100,9 @@ export default {
     }
   },
   methods: {
+    select(item){
+      this.$emit('select',item)
+    },
     handleClickLocation (e) {
       var location = e.currentTarget.innerText
       if(location === '热'){
@@ -145,7 +153,7 @@ export default {
         return lists.push(value[0])
       })
 
-      console.log(lists)
+      // console.log(lists)
       let height = 0
       this.listHeight.push(height)
       for(let i = 0; i<lists.length; i++){
@@ -153,7 +161,7 @@ export default {
         height += item.clientHeight
         this.listHeight.push(height)
       }
-      console.log(this.listHeight)
+      // console.log(this.listHeight)
     }, 
   },
   watch: {

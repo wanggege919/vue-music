@@ -7,3 +7,7 @@ export default class Singer {
         ax_age=2592000`
     }
 }
+
+
+
+

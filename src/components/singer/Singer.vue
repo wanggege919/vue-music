@@ -1,9 +1,11 @@
 <template>
   <div class="singer">
-      <listview :data="singers"></listview>
+      <listview :data="singers" @select = 'selectSinger'></listview>
+      <router-view></router-view>
   </div>
 </template>
 <script>
+import {mapMutations} from 'vuex'
 import { getSingerList } from "api/singer.js";
 import { ERR_OK } from "api/config.js";
 import Listview from 'base/listview/listview'
@@ -21,6 +23,16 @@ export default {
     this._getSingerList();
   },
   methods: {
+    ...mapMutations({
+      setSinger: 'SET_SINGER'//将mutations里面的SET_SINGER方法映射到该组件的 setSinger 方法中
+    }),
+    selectSinger (singer) {
+      this.$router.push({
+        path: `/singer/${singer.id}`
+      })
+      // this.$store.commit('SET_SINGER', singer)
+      this.setSinger(singer)
+    },
     _getSingerList() {
       getSingerList().then((res) => {
         if (res.code === ERR_OK) {
