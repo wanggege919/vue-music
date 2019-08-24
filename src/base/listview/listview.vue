@@ -100,6 +100,9 @@ export default {
     }
   },
   methods: {
+    refresh() {
+      this.$refs.listview.refresh()
+    },
     select(item){
       this.$emit('select',item)
     },

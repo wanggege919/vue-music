@@ -4,7 +4,7 @@ const state = {
     singer: {},
     playing: false, //是否播放，暂停
     fullScreen: false, //是否满屏
-    playlist: [], //播放列表
+    playlist: [], //播放列表, 不同的播放模式是不一样的
     sequenceList: [], //顺序播放列表
     mode: playMode.sequence, //播放模式
     currentIndex: -1, 

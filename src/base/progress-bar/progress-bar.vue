@@ -27,7 +27,7 @@ export default {
         }
     },
     created() {
-        this.touch = {} //存储一些touch时间所用到的数据
+        this.touch = {} //存储一些touch时间所用到的数据, 并且不需要getter，setter
     },
     watch: {
         percent(newPercent) {
@@ -40,7 +40,11 @@ export default {
     },
     methods: {
         progressClick(e) {
-            this._offsetWidth(e.offsetX)
+            //当点击时，offsetX显示不对
+            const rect = this.$refs.progressBar.getBoundingClientRect()
+            const width = e.pageX - rect.left
+            this._offsetWidth(width)
+            // this._offsetWidth(e.offsetX)
             this._triggerPercent()
         },
         progressTouchStart(e) {

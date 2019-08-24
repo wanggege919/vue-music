@@ -1,6 +1,6 @@
 <template>
-  <div class="singer">
-      <listview :data="singers" @select = 'selectSinger'></listview>
+  <div class="singer" ref="singer">
+      <listview :data="singers" @select = 'selectSinger' ref="list"></listview>
       <router-view></router-view>
   </div>
 </template>
@@ -10,7 +10,9 @@ import { getSingerList } from "api/singer.js";
 import { ERR_OK } from "api/config.js";
 import Listview from 'base/listview/listview'
 import Singer from 'common/js/singer.js'
+import {playlistMixin} from 'common/js/mixin.js'
 export default {
+  mixins: [playlistMixin],
   data() {
     return {
       singers: {}
@@ -23,6 +25,11 @@ export default {
     this._getSingerList();
   },
   methods: {
+     handlePlaylist(playlist) {
+      const bottom = playlist.length > 0 ? '60px' : ''
+      this.$refs.singer.$el.style.bottom = bottom
+      this.$refs.list.refresh()
+    },
     ...mapMutations({
       setSinger: 'SET_SINGER'//将mutations里面的SET_SINGER方法映射到该组件的 setSinger 方法中
     }),
@@ -36,9 +43,7 @@ export default {
     _getSingerList() {
       getSingerList().then((res) => {
         if (res.code === ERR_OK) {
-        //   this.singers = res.data.list;
           this.singers = this._normalizeSinger(res.data.list)
-        //   console.log(this.singers)
         }
       });
     },

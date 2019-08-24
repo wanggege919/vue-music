@@ -58,7 +58,6 @@ export default {
           if(musicData.songid && musicData.albumid){
             ret.push(createSong(musicData))
           }
-
         })
         return ret
       }

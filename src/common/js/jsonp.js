@@ -5,7 +5,7 @@ export default function jsonp(url,data,options){
   url = (url.indexOf("?") > -1 ? url : (url+'?')) + param(data)
   return new Promise((resolve,reject)=>{
     originJSONP(url,options,(err,res) => {
-      if(!err){
+      if (!err){
         resolve(res)
       } else {
         reject(err)
@@ -16,7 +16,7 @@ export default function jsonp(url,data,options){
 
 function param (data) {
   let url = ''
-  for(let key in data){
+  for (let key in data){
     let value = data[key] !== undefined ? data[key] : ''//
     url += '&' + key + '=' + encodeURIComponent(value) //value要记着加密
   }
