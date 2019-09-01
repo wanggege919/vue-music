@@ -242,7 +242,7 @@ export default {
         return;
       }
       this.setPlayingState(!this.playing);
-      if (thia.currentLyric) {
+      if (this.currentLyric) {
         this.currentLyric.togglePlay()
       }
     },
@@ -301,7 +301,7 @@ export default {
           this.togglePlaying();
         }
       }
-      
+
       this.songReady = false;
     },
     next() {
@@ -320,7 +320,7 @@ export default {
           this.togglePlaying();
         }
       }
-      
+
       this.songReady = false;
     },
     updateTime(e) {

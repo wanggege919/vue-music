@@ -1,21 +1,25 @@
-# y
+# Vue2.5 开发去哪儿网App
+简述：仿移动端QQ音乐，使用 axios, jsonp等方法抓取QQ音乐的真实数据，使用组件化思想打造的一款接近原生音乐App体验的音乐App。
 
-> 音乐播放器
+<!-- # [项目预览](https://wanggege919.github.io/travel-new/dist/index.html#/) -->
 
-## Build Setup
 
-``` bash
-# install dependencies
-npm install
+# 技能树
+- 使用语言：vue + vue-cli + axios + vuex + vue-router + stylus + eslint + es6
+- 使用 vue-cli 进行原型开发并配置 config
+- 使用 vue-router 进行路由管理，与vueJs集成构建单页应用，分模块化配置
+- 使用 vuex 进行地址状态管理，支持增删改查
+- 使用 axios + promise 异步请求
+- 使用 组件化开发，整个项目由页面的基本组件，公用组件完成
+- 使用 swiper + better-scroll + animate.css 插件
+- 使用 stylus 语法：嵌套，混入，函数等
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 图示
 
-# build for production with minification
-npm run build
+  <img src="./images/1.png" width=440>
+  <img src="./images/2.png" width=440>
+  <img src="./images/3.png" width=440>
+  <img src="./images/4.png" width=440>
+  <img src="./images/5.png" width=440>
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
